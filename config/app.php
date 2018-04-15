@@ -167,8 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-        //IDE助手服务提供器
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //IDE助手服务提供器 已由bootstrap/cache/packages.php 倒入
+        //Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...
