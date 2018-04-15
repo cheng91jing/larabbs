@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -65,13 +66,19 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param UserRequest $request
+     * @param ImageUploadHandler $uploader
      * @param  \App\Models\User $user
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
-        $user->update($request->all());
+        $data = $request->all();
+        if($request->file('avatar')){
+            $result = $uploader->savePublic($request->file('avatar'), 'avatar', $user->id, 362);
+            if($result) $data['avatar'] = $result['path'];
+        }
+        $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功');
     }
 
