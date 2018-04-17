@@ -1,15 +1,12 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
-
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-    font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial,sans-serif;
+    font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
 }
 
 /* header */
@@ -25,8 +22,9 @@ body {
 /* Sticky footer styles 固定页脚样式*/
 html {
     position: relative;
-    min-height: 100% ;
+    min-height: 100%;
 }
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
@@ -35,7 +33,7 @@ body {
 .footer {
     position: absolute;
     bottom: 0;
-    width: 100% ;
+    width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #000;
@@ -57,7 +55,7 @@ body {
 
 /* User register page */
 .register-page {
-    img.captcha{
+    img.captcha {
         margin-bottom: 0px;
         margin-top: 10px;
         cursor: pointer;
@@ -65,10 +63,41 @@ body {
 }
 
 /* User profile page */
-.users-show-page{
-    .user-info{
-        .thumbnail{
+.users-show-page {
+    .user-info {
+        .thumbnail {
             margin-bottom: 0;
+        }
+    }
+}
+
+/* Topic index page */
+.topics-index-page {
+    .topic-list {
+        .nav > li > a {
+            position: relative;
+            display: block;
+            padding: 5px 14px;
+            font-size: 0.9em;
+        }
+        a{
+            color: #444444;
+        }
+        .meta{
+            font-size: 0.9em;
+            color: #b3b3b3;
+            a{
+                color: #b3b3b3;
+            }
+        }
+        .badge{
+            background-color: #d8d8d8;
+        }
+        hr{
+            margin-top: 12px;
+            margin-bottom: 12px;
+            border: 0;
+            border-top: 1px solid #dcebf5;
         }
     }
 }
