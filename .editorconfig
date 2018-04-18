@@ -20,4 +20,8 @@ indent_style = space
 indent_size = 4
 
 [*.md]
+<<<<<<< HEAD
 trim_trailing_whitespace = false
+=======
+trim_trailing_whitespace = false
+>>>>>>> 6057c29f0f343e5fcaa383cf5607171e1b113db3
