@@ -60,7 +60,8 @@
             <div class="panel panel-default topic-reply">
                 <div class="panel-body">
                     @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
-                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+                    {{-- 权限判断时，为预防N+1预载入 topic 模型 --}}
+                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user', 'topic')->get()])
                 </div>
             </div>
         </div>

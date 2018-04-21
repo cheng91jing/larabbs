@@ -27,4 +27,9 @@ class ReplyObserver
         //回复成功后，需要通知话题作者, 使用作者模型调用通知类
         $topic->user->notify(new TopicReplied($reply));
     }
+
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->decrement('reply_count');
+    }
 }
