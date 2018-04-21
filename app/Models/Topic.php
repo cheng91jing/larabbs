@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+/**
+ * Class Topic
+ * @package App\Models
+ * @property User $user
+ */
 class Topic extends Model
 {
     protected $fillable = [
