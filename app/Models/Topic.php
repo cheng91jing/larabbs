@@ -18,6 +18,11 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     /**
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param $order string

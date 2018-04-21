@@ -17,12 +17,12 @@ body {
     border-top: 4px solid #00b5ad;
     margin-bottom: 40px;
     margin-top: 0px;
-    .dropdown-menu{
+    .dropdown-menu {
         padding: 0;
-        li a{
+        li a {
             border-bottom: 1px solid #d8d8d8;
             line-height: 2.4;
-            .glyphicon{
+            .glyphicon {
                 margin-right: 8px;
             }
         }
@@ -79,30 +79,37 @@ body {
             margin-bottom: 0;
         }
     }
-    .nav-tabs{
+    .nav-tabs {
         margin-bottom: 20px;
-        > li.active > a{
+        > li.active > a {
             background-color: #fff;
         }
     }
-    .list-group{
-        .list-group-item{
+    .list-group {
+        .list-group-item {
             border: none;
             margin-bottom: 0;
             border-bottom: 1px solid #efefef;
 
-            .meta{
+            .meta {
                 color: #b3b3b3;
             }
         }
     }
-    .pagination{
+    .pagination {
         margin: 12px 0;
+    }
+    .meta {
+        font-size: .9em;
+        color: #b3b3b3;
+    }
+    .reply-content {
+        margin: 6px 0;
     }
 }
 
 /* Topic index page */
-.topics-index-page, .categories-show-page{
+.topics-index-page, .categories-show-page {
     .topic-list {
         .nav > li > a {
             position: relative;
@@ -110,20 +117,20 @@ body {
             padding: 5px 14px;
             font-size: 0.9em;
         }
-        a{
+        a {
             color: #444444;
         }
-        .meta{
+        .meta {
             font-size: 0.9em;
             color: #b3b3b3;
-            a{
+            a {
                 color: #b3b3b3;
             }
         }
-        .badge{
+        .badge {
             background-color: #d8d8d8;
         }
-        hr{
+        hr {
             margin-top: 12px;
             margin-bottom: 12px;
             border: 0;
@@ -134,13 +141,29 @@ body {
 
 /* Topic show page */
 @import "topics_body";
-.topics-show-page{
-    .panel{
+.topics-show-page {
+    .panel {
         padding: 15px;
-        h1{
+        h1 {
             margin: 0.4em auto 0.6em;
             font-size: 28px;
             line-height: 38px;
         }
+    }
+}
+
+.topic-reply {
+    hr {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .meta {
+        font-size: .9em;
+        color: #b3b3b3;
     }
 }
