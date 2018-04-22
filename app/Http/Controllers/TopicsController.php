@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Handlers\ImageUploadHandler;
 use App\Models\Category;
+use App\Models\Link;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class TopicsController extends Controller
 	{
 		$topics = Topic::withOrder($request->query('order'))->paginate(20);
 		$active_users = $user->getActiveUsers();
-		return view('topics.index', compact('topics', 'active_users'));
+		$links = (new Link())->getAllCached();
+		return view('topics.index', compact('topics', 'active_users', 'links'));
 	}
 
     public function show(Request $request, Topic $topic)
