@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
 
         //操作时间DateTime扩展 本地化
         Carbon::setLocale('zh');
+
+        \Horizon::auth(function ($request){
+            return \Auth::user()->hasRole('Founder');
+        });
     }
 
     /**
@@ -30,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if(app()->isLocal()){
+            $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
+        }
     }
 }
