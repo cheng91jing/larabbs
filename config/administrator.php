@@ -24,7 +24,8 @@ return array(
      *
      * @type string
      */
-    'title' => config('app.name'),
+    'title' => env('APP_NAME', 'Administrator'),
+//    'title' => config('app.name'),
 
     /*
      * The path to your model config directory
@@ -80,7 +81,11 @@ return array(
      *      'Analytics' => ['E-Commerce' => 'page.pages.analytics'],
      *  ]
      */
-    'menu' => [],
+    'menu' => [
+        '用户与权限' => [
+            'users',
+        ],
+    ],
 
     /*
      * The permission option is the highest-level authentication check that lets you define a closure that should return true if the current user
@@ -125,7 +130,7 @@ return array(
      *
      * @type string
      */
-    'home_page' => '',
+    'home_page' => 'users',
 
     /*
      * The route to which the user will be taken when they click the "back to site" button
