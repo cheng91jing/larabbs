@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class SeedCategoriesData extends Migration
 {
     /**
-     * Run the migrations.
+     * 初始化分类数据
      *
      * @return void
      */
