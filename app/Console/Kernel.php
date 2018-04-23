@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //注册调度任务 查询活跃用户
+        //注册调度任务 每隔一个小时执行一遍 查询活跃用户
         $schedule->command('chenbbs:calculate-active-user')->hourly();
+        // 每日零时执行一次
+        $schedule->command('chenbbs:sync-user-actived-at')->dailyAt('00:00');
     }
 
     /**
