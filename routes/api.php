@@ -1,5 +1,6 @@
 <?php
 
+use Dingo\Api\Routing\Router;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+$api = app('Dingo\Api\Routing\Router');
+
+
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api',
+], function (Router $api){
+    //短信验证码
+    $api->post('verificationCodes', 'VerificationCodesController@store')
+        ->name('api.verificationCodes.store');
 });
