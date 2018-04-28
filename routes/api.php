@@ -37,5 +37,8 @@ $api->version('v1', [
         //图片验证码
         $api->post('captchas', 'CaptchasController@store')
             ->name('api.captchas.store');
+        //第三方登陆
+        $api->post('socials/{socials_type}/authorizations', 'AuthorizationsController@socialStore')
+            ->name('api.socials.authorizations.store');
     });
 });
