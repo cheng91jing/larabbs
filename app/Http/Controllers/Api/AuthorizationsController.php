@@ -79,13 +79,13 @@ class AuthorizationsController extends Controller
         $token = \Auth::guard('api')->refresh();
         return $this->responseWithToken($token);
     }
-
+    //删除token
     public function destroy()
     {
         \Auth::guard('api')->logout();
         return $this->response->noContent();
     }
-    //删除token
+
 
     private function responseWithToken($token)
     {
