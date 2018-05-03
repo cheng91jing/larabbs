@@ -85,7 +85,7 @@ class UsersController extends Controller
         $this->authorize('update', $user);
         $data = $request->all();
         if($request->file('avatar')){
-            $result = $uploader->savePublic($request->file('avatar'), 'avatar', $user->id, 362);
+            $result = $uploader->savePublic($request->file('avatar'), 'avatars', $user->id, 362);
             if($result) $data['avatar'] = $result['path'];
         }
         $user->update($data);
