@@ -38,5 +38,13 @@ class AppServiceProvider extends ServiceProvider
         if(app()->isLocal()){
             $this->app->register(\VIACreative\SudoSu\ServiceProvider::class);
         }
+
+        //为API 手动处理异常  【DingoApi 默认所有异常都会返回 500】
+        \API::error(function(\Illuminate\Database\Eloquent\ModelNotFoundException $exception){
+            abort(404);
+        });
+        \API::error(function (\Illuminate\Auth\Access\AuthorizationException $exception) {
+            abort(403, $exception->getMessage());
+        });
     }
 }

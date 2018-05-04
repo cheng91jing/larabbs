@@ -22,6 +22,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
+    'middleware' => ['bindings'],
 ], function (Router $api){
     //身份验证组
     $api->group([
@@ -74,6 +75,9 @@ $api->version('v1', [
             //发表话题
             $api->post('topics', 'TopicsController@store')
                 ->name('api.topics.store');
+            //修改话题
+            $api->patch('topics/{topic}', 'TopicsController@update')
+                ->name('api.topics.update');
         });
     });
 });
