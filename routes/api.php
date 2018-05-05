@@ -59,8 +59,16 @@ $api->version('v1', [
         'expires' => config('api.rate_limits.access.expires'),
     ], function (Router $api){
         //游客可以访问的接口
+        #分类列表
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
+        #话题列表  /topics?include=user,category
+        $api->get('topics', 'TopicsController@index')
+            ->name('api.topics.index');
+        #用户的话题
+        $api->get('users/{user}/topics', 'TopicsController@userIndex')
+            ->name('api.users.topics.index');
+
         //需要token访问的接口
         $api->group(['middleware' => 'api.auth'], function (Router $api){
             //当前登陆用户信息

@@ -26,6 +26,15 @@ class AppServiceProvider extends ServiceProvider
         \Horizon::auth(function ($request){
             return \Auth::user()->hasRole('Founder');
         });
+
+        //设置 Dingo API 格式化返回数据时使用的 Fractal 的 Serializer
+        app(\Dingo\Api\Transformer\Factory::class)->setAdapter(function ($app){
+            $fractal = new \League\Fractal\Manager;
+
+            $fractal->setSerializer(new \League\Fractal\Serializer\ArraySerializer);
+
+            return new \Dingo\Api\Transformer\Adapter\Fractal($fractal);
+        });
     }
 
     /**
@@ -46,5 +55,6 @@ class AppServiceProvider extends ServiceProvider
         \API::error(function (\Illuminate\Auth\Access\AuthorizationException $exception) {
             abort(403, $exception->getMessage());
         });
+
     }
 }
