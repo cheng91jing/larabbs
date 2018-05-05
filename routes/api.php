@@ -71,6 +71,12 @@ $api->version('v1', [
         #话题详情
         $api->get('topics/{topic}', 'TopicsController@show')
             ->name('api.topics.show');
+        #话题回复列表
+        $api->get('topics/{topic}/replies', 'RepliesController@index')
+            ->name('api.topics.replies.index');
+        #用户的回复列表
+        $api->get('users/{user}/replies', 'RepliesController@userIndex')
+            ->name('api.users.replies.index');
         //需要token访问的接口
         $api->group(['middleware' => 'api.auth'], function (Router $api){
             //当前登陆用户信息
