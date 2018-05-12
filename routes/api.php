@@ -80,6 +80,9 @@ $api->version('v1', [
         #推荐资源
         $api->get('links', 'LinksController@index')
             ->name('api.links.index');
+        #活跃用户
+        $api->get('actived/users', 'UsersController@activedIndex')
+            ->name('api.actived.users.index');
         //需要token访问的接口
         $api->group(['middleware' => 'api.auth'], function (Router $api){
             //当前登陆用户信息
