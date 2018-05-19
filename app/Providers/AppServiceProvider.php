@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passport\Passport;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,13 @@ class AppServiceProvider extends ServiceProvider
 
             return new \Dingo\Api\Transformer\Adapter\Fractal($fractal);
         });
+
+        //Passport 路由
+        Passport::routes();
+        // access_token 过期时间
+        Passport::tokensExpireIn(Carbon::now()->addDays(15));
+        // refresh Tokens 过期时间
+        Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
     }
 
     /**
